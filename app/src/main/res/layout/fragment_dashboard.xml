@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        tools:text="Hello, %s"
+        tools:text="@string/username_text"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="@dimen/large_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Student ID: s4640338"
+        android:textSize="@dimen/medium_text_size"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +50,7 @@
         android:layout_marginTop="16dp"
         android:text="Bachelor of Information Technology\n(NBIT)"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="@dimen/medium_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +65,7 @@
         android:text="Check Schedule"
         android:textAppearance="@android:style/TextAppearance.Small"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="@dimen/medium_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,24 +73,73 @@
 
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:paddingBottom="8dp"
         android:background="@drawable/rounded_corner_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatButton">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:text="Recommended Courses"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/recommended_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:text="Recommended Courses"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/course_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:text="Software Engineering"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/course_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:text="Cloud Application Development"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/course_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:text="Server Administration And Management"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/course_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:text="Mobile Application Development"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

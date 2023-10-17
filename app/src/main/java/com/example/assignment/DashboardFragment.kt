@@ -15,7 +15,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
 
         // assign username to the username text view
-        view.findViewById<TextView>(R.id.username_text_view).text = args.username
+        //view.findViewById<TextView>(R.id.username_text_view).text = args.username
+
+        val username = args.username
+        val usernameText = getString(R.string.username_text, username)
+        view.findViewById<TextView>(R.id.username_text_view).text = usernameText
 
         // find the login button
         val profile_button = view.findViewById<AppCompatImageButton>(R.id.profile_img_button)
