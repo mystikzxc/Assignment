@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DashboardFragment">
+    tools:context=".fragments.DashboardFragment">
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/profile_img_button"
@@ -83,6 +83,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatButton">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,49 +97,32 @@
                 android:paddingLeft="16dp"
                 android:paddingTop="8dp"
                 android:text="Recommended Courses"
+                android:textColor="@color/black"
                 android:textSize="@dimen/large_text_size"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/course_1"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommended_recycler_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:paddingTop="16dp"
-                android:text="Software Engineering"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:scrollbars="vertical"/>
 
-            <TextView
-                android:id="@+id/course_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:text="Cloud Application Development"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/course_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:text="Server Administration And Management"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/course_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:text="Mobile Application Development"
-                android:textSize="@dimen/medium_text_size"
-                android:textStyle="bold" />
-
+<!--            <TextView-->
+<!--                android:id="@+id/course_1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:paddingTop="16dp"-->
+<!--                android:text="Software Engineering"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/medium_text_size"-->
+<!--                android:textStyle="bold" />-->
         </LinearLayout>
 
     </FrameLayout>

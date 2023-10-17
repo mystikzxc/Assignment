@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Assignment</string>
     <string name="username_text">Hello, %s</string>
+
+    <string name="recommended_1">Software Engineering</string>
+    <string name="recommended_2">Cloud Application Development</string>
+    <string name="recommended_3">Server Administration And Management</string>
+    <string name="recommended_4">Mobile Application Development</string>
+
 </resources>

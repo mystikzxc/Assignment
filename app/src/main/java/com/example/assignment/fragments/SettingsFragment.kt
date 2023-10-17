@@ -1,11 +1,11 @@
-package com.example.assignment
+package com.example.assignment.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.assignment.R
 
 class SettingsFragment : Fragment(R.layout.fragment_settings){
 
