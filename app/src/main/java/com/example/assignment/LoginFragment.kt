@@ -3,6 +3,7 @@ package com.example.assignment
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -24,6 +25,14 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             // navigate to Dashboard
             val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment(username)
             findNavController().navigate(action)
+        }
+
+        // find the forgot_pw_text by its ID
+        view.findViewById<TextView>(R.id.forgot_pw_text).setOnClickListener {
+            // create a Toast with text, to appear for a short time
+            val forgotToast = Toast.makeText(context, "Are you dumb?", Toast.LENGTH_SHORT)
+            // show the Toast
+            forgotToast.show()
         }
     }
 }
