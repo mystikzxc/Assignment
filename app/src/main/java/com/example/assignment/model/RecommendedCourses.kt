@@ -1,4 +1,6 @@
 package com.example.assignment.model
 
-data class RecommendedCourses(val stringResourceId: Int) {
+import androidx.annotation.StringRes
+
+data class RecommendedCourses(@StringRes val stringResourceId: Int) {
 }

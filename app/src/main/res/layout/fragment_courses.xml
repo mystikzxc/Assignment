@@ -7,13 +7,15 @@
     tools:context=".fragments.CoursesFragment">
 
     <TextView
-        android:id="@+id/profile_text"
+        android:id="@+id/courses_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Courses"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="Hello"
+        android:textColor="@color/black"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
