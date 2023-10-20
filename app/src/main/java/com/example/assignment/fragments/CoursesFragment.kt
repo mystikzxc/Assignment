@@ -1,9 +1,11 @@
 package com.example.assignment.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.TextView
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +25,7 @@ class CoursesFragment : Fragment(R.layout.fragment_courses){
     // create retrofit object using url
     private val retrofitObject by lazy {
         Retrofit.Builder()
-            .baseUrl("https://ac9f-122-148-195-192.ngrok-free.app")
+            .baseUrl("https://0523-122-148-195-192.ngrok-free.app")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
@@ -60,8 +62,27 @@ class CoursesFragment : Fragment(R.layout.fragment_courses){
         coursesLiveData.observe(viewLifecycleOwner) { result ->
             result?.let { courses ->
                 // update adapter with list
-                adapter.updateData(courses)
+                adapter.setData(courses)
             }
         }
+
+        // initialise search input
+        val searchInput = view.findViewById<EditText>(R.id.search_input)
+
+        // capture the text for the search input
+        searchInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // This method is called before the text is changed
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // This method is called as the text is changing
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString()
+                adapter.filter(query)
+            }
+        })
     }
 }

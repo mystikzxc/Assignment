@@ -6,7 +6,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
@@ -29,7 +28,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
     // create retrofit object using url
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://ac9f-122-148-195-192.ngrok-free.app")
+            .baseUrl("https://0523-122-148-195-192.ngrok-free.app")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
@@ -48,7 +47,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         // observe the login response livedata
         loginResponseLiveData.observe(viewLifecycleOwner) {
             it?.let { response ->
-                Toast.makeText(requireContext(), "${response.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "${response.message}", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -74,7 +73,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
                     val response = loginApi.login(username = username, password = password)
                     loginResponseLiveData.value = response
 
-                    if (response.message == "Success") {
+                    if (response.message == "Login Success") {
 
                         // assign typed username
                         val username = view.findViewById<EditText>(R.id.username_input).text.toString()

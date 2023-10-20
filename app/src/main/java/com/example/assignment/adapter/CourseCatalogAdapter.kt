@@ -10,8 +10,11 @@ import com.example.assignment.R
 
 class CourseCatalogAdapter(
     private val context: Context,
-    private val dataset: MutableList<String>
+    private var dataset: MutableList<String>
 ) : RecyclerView.Adapter<CourseCatalogAdapter.CourseCatalogViewHolder>() {
+    // initialise filtered dataset as copy of original dataset
+    private var filteredDataset: MutableList<String> = dataset.toMutableList()
+
     class CourseCatalogViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.courses_catalog_title)
     }
@@ -28,12 +31,12 @@ class CourseCatalogAdapter(
 
     // get dataset size
     override fun getItemCount(): Int {
-        return dataset.size
+        return filteredDataset.size
     }
 
     // replace contents of list view
     override fun onBindViewHolder(holder: CourseCatalogViewHolder, position: Int) {
-        val item = dataset[position]
+        val item = filteredDataset[position]
 
         // update viewholder to how course catalog
         holder.textView.text = item
@@ -41,8 +44,32 @@ class CourseCatalogAdapter(
 
     // update adapter data
     fun updateData(newData: List<String>) {
-        dataset.clear()
+        filteredDataset = newData.toMutableList()
+        notifyDataSetChanged()
+    }
+
+    // set adapter data
+    fun setData(newData: List<String>) {
         dataset.addAll(newData)
+        filteredDataset.addAll(newData)
+        notifyDataSetChanged()
+    }
+
+    // filter function
+    fun filter(query: String) {
+        if (query.isEmpty()) {
+            // if query is empty, show all items
+            filteredDataset.clear()
+            filteredDataset.addAll(dataset)
+        } else {
+            filteredDataset.clear()
+            for (item in dataset) {
+                if (item.contains(query, ignoreCase = true)) {
+                    filteredDataset.add(item)
+                }
+            }
+            updateData(filteredDataset)
+        }
         notifyDataSetChanged()
     }
 }

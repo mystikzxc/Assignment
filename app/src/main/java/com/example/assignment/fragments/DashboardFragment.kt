@@ -3,6 +3,8 @@ package com.example.assignment.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -42,5 +44,13 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
         // improve performance. only use if recyclerview layout size does not change
         recyclerView.setHasFixedSize(true)
+
+        // find the schedule button by its ID
+        view.findViewById<AppCompatButton>(R.id.schedule_button).setOnClickListener {
+            // create a Toast with text, to appear for a short time
+            val scheduleToast = Toast.makeText(context, "Your schedule has not been updated", Toast.LENGTH_SHORT)
+            // show the Toast
+            scheduleToast.show()
+        }
     }
 }
