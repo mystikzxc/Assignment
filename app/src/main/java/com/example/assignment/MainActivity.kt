@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         // listener to check destination
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.loginFragment) {
+            if (destination.id == R.id.loginFragment || destination.id == R.id.profileFragment) {
                 bottom_nav.visibility =
                     View.GONE // Hide the bottom navigation for the LoginFragment
             } else {

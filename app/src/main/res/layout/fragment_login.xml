@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Welcome to the Univeristy Course Registration App"
+        android:text="Welcome to the University Course Registration App"
         android:textAlignment="center"
         android:textSize="@dimen/large_text_size"
         android:textColor="@color/black"
@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/emblem" />
 
     <EditText
-        android:id="@+id/username_edit_text"
+        android:id="@+id/username_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Username"
@@ -47,20 +47,21 @@
         android:paddingBottom="8dp"/>
 
     <EditText
-        android:id="@+id/password_edit_text"
+        android:id="@+id/password_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corner_white_purple_stroke"
         android:hint="Password"
-        android:textSize="@dimen/medium_text_size"
+        android:inputType="textPassword"
         android:paddingLeft="16dp"
         android:paddingTop="8dp"
         android:paddingRight="16dp"
         android:paddingBottom="8dp"
+        android:textSize="@dimen/medium_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/username_input" />
 
     <TextView
         android:id="@+id/forgot_pw_text"
@@ -72,7 +73,7 @@
         android:textSize="@dimen/small_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_button"

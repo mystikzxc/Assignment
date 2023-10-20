@@ -6,7 +6,10 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
+import com.example.assignment.adapter.CourseCatalogAdapter
 import com.example.assignment.api.CoursesApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,15 +20,10 @@ import java.lang.Exception
 
 class CoursesFragment : Fragment(R.layout.fragment_courses){
 
-    // assign courses list
-    private val coursesListTextView: TextView by lazy {
-        requireView().findViewById<TextView>(R.id.courses_list)
-    }
-
     // create retrofit object using url
     private val retrofitObject by lazy {
         Retrofit.Builder()
-            .baseUrl("https://59f1-2405-6e00-d79-3e00-207c-1d80-3aa1-69ae.ngrok-free.app")
+            .baseUrl("https://ac9f-122-148-195-192.ngrok-free.app")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
@@ -39,19 +37,30 @@ class CoursesFragment : Fragment(R.layout.fragment_courses){
         // initialise api
         val api = retrofitObject.create(CoursesApi::class.java)
 
-        // observe the courses livedata
-        coursesLiveData.observe(viewLifecycleOwner) { result ->
-            result?.let { courses ->
-                coursesListTextView.text = courses.toString()
-            }
-        }
-
         // update the the courses live data with the result
         CoroutineScope(Dispatchers.Main).launch {
             try {
                 coursesLiveData.value = api.getCourses().courses
             } catch (e: Exception) {
                 Log.e("CoursesFragment", "Error fetching courses: ${e.message}")
+            }
+        }
+
+        // find recycler view and assign to adapter of recyclerview
+        val recyclerView = view.findViewById<RecyclerView>(R.id.courses_recycler_view)
+        val adapter = CourseCatalogAdapter(requireContext(), mutableListOf()) // start with empty list
+
+        // set the adapter
+        recyclerView.adapter = adapter
+
+        // set layout manager of recyclerview
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // observe courses live data
+        coursesLiveData.observe(viewLifecycleOwner) { result ->
+            result?.let { courses ->
+                // update adapter with list
+                adapter.updateData(courses)
             }
         }
     }
