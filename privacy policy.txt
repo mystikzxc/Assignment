@@ -1,0 +1,31 @@
+Privacy Policy for Course Registration - Mystik
+
+Last updated: 23/10/2023
+
+Introduction
+
+Welcome to Course Registration - Mystik, a demo Android application that allows users to register for courses. We are committed to protecting your privacy and ensuring that your personal information remains secure. This Privacy Policy explains how we collect, use, and protect information provided by users of our application.
+
+Information We Collect
+
+Course Registration - Mystik does not collect or store any personal or sensitive information about its users. We do not require users to create accounts, provide personal details, or access any user data.
+
+Use of Information
+
+Since we do not collect any user information, we have no data to use, share, or sell to third parties. Our primary goal is to offer a seamless course registration experience without compromising your privacy.
+
+Security
+
+We take security seriously, even though we don't collect user data. Our application is designed to function securely without the need for personal information storage. We regularly update and maintain our app to ensure the best possible security.
+
+Cookies
+
+Course Registration - Mystik does not use cookies or any tracking technologies to collect information about its users.
+
+Changes to this Privacy Policy
+
+We reserve the right to update and amend this Privacy Policy as needed. Any changes will be posted in the app, and the date of the last update will be revised accordingly.
+
+Contact Us
+
+If you have any questions or concerns about our privacy practices or this Privacy Policy, please contact us at [Your Contact Information].
